@@ -12,6 +12,6 @@ Needed Libraries as of v0.8 are:
 
 Current state of the app (v0.8):
 
-![encryptednotesappv0 9](https://user-images.githubusercontent.com/85651296/180081847-8002ebb6-e698-41a0-84e6-1df18454fb6b.png)
+![EncryptedNotesAppv0 9](https://user-images.githubusercontent.com/85651296/180082339-bf3d1e97-f952-4b8b-831e-7a80427bbb46.png)
 
 PS. The notes you open should be in the same folder as the executable and the notes you create will be created in the folder in which the executable is located.
