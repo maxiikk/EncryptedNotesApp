@@ -16,6 +16,8 @@ mypassword = StringVar()
 passwordentered = IntVar() 
 passwarningopen = IntVar()
 setpassopen = IntVar()
+searchopen = IntVar()
+noteslistopen = IntVar()
 openednotename = StringVar()
 openednotename.set("NULL")
 successfullydecrypted = IntVar()
@@ -470,6 +472,11 @@ def opennoteslist():
     noteswindow.resizable(height = False, width = False)
     noteswindow.config(bg='#bdbdbd')
     noteswindow.geometry("410x300")
+    def notesclose(): 
+        noteslistopen.set(0) 
+        noteswindow.destroy() 
+    noteswindow.protocol("WM_DELETE_WINDOW", notesclose)
+    noteslistopen.set(1)
     mainframe = Frame(noteswindow)
     mainframe.grid(row=0, stick = W)
     mainframe.config(bg='#bdbdbd')
@@ -502,12 +509,23 @@ def opennoteslist():
             i += 1
     refreshbutton = Button(mainframe, text = "Refresh", width=20, height=1, command=listthem, bg='#bdbdbd').grid(row = 0, stick = W)
     listthem()
+def opennoteslist2():
+    if noteslistopen.get() != 1:
+        opennoteslist()
+    else:
+        warningtextbox.delete("1.0", "end")
+        warningtextbox.insert(INSERT, "Notes already open")
 def searchinfiles():
     noteswindow = Toplevel(master)
     noteswindow.title("Search")
     noteswindow.resizable(height = False, width = False)
     noteswindow.config(bg='#bdbdbd')
     noteswindow.geometry("410x300")
+    def searchclose(): 
+        searchopen.set(0)
+        noteswindow.destroy() 
+    noteswindow.protocol("WM_DELETE_WINDOW", searchclose)
+    searchopen.set(1)
     mainframe = Frame(noteswindow)
     mainframe.grid(row=0, stick = W)
     mainframe.config(bg='#bdbdbd')
@@ -573,7 +591,12 @@ def searchinfiles():
     texttosearchfor = Entry(mainframe, width = 40)
     texttosearchfor.grid(row = 0, column = 1)
     searchbutton = Button(mainframe, text = "Seach", width = 15, height = 1, command= lambda: searchtext(texttosearchfor.get()), bg='#bdbdbd').grid(row = 0, column = 2)
-
+def searchinfiles2():
+    if searchopen.get() != 1:
+        searchinfiles()
+    else:
+        warningtextbox.delete("1.0", "end")
+        warningtextbox.insert(INSERT, "Search already open")
 def exportdecrypted():
     if passwordentered.get() == 1 and successfullydecrypted.get() == 1:
         sourcefile = open(openednotename.get() + ".txt", "r+")
@@ -736,8 +759,8 @@ def mergenotes():
 tools.add_command(label = "Export Decrypted Note", command = exportdecrypted)
 tools.add_command(label = "Separate note", command = separatewith)
 tools.add_command(label = "Merge notes", command = mergenotes)
-menu.add_command(label = "Notes", command = opennoteslist)
-menu.add_command(label = "Search", command = searchinfiles)
+menu.add_command(label = "Notes", command = opennoteslist2)
+menu.add_command(label = "Search", command = searchinfiles2)
 
 def reencrypt(k):
     cipher = AES_Encryption(key=reencryptionpassword.get(), iv = 'dsfgsjklcvb45eso')
