@@ -5,15 +5,14 @@ An app made with my other project's encryption and decryption functions that mak
 
 I saved the libraries needed for this app so if something happens, my project will still work in the future
 
-Needed Libraries as of v0.9 are:
+Needed Libraries as of v1.5 are:
   1. AES-Encryptor
   2. pyperclip
   3. pycryptodome
 
-Current state of the app (v0.9):
+Current state of the app (v1.5):
 
-![EncryptedNotesAppv0 9](https://user-images.githubusercontent.com/85651296/180082339-bf3d1e97-f952-4b8b-831e-7a80427bbb46.png)
+![notepad++_4k2fsLkPMe](https://user-images.githubusercontent.com/85651296/180620817-8c0e11b3-30d7-48c4-a3de-5d0a15437cb2.png)
 
-![notepad++_aJC3HwsaAv](https://user-images.githubusercontent.com/85651296/180485252-ddf09206-ef4f-4660-b194-cac60baec4e7.png)
 
-PS. The notes you open should be in the same folder as the executable and the notes you create will be created in the folder in which the executable is located.
+PS. The notes you open should be in the same folder as the executable and the notes you create will be created in the folder in which the executable is located. Or you can open the notes through the file selection dialog
